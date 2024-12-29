@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy New Year 2025</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://cdn.pixabay.com/photo/2017/12/31/17/15/fireworks-3050028_1280.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .envelope {
+            position: relative;
+            display: inline-block;
+            width: 300px;
+            height: 200px;
+            background: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        .envelope:before, .envelope:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        .envelope:before {
+            top: 0;
+            left: 0;
+            border-width: 0 150px 100px 150px;
+            border-color: transparent transparent #ff6600 transparent;
+        }
+        .envelope:after {
+            bottom: 0;
+            left: 0;
+            border-width: 100px 150px 0 150px;
+            border-color: #ff6600 transparent transparent transparent;
+        }
+        .message {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideIn 1s ease-in-out;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            color: #333;
+        }
+        .envelope.open {
+            transform: rotateX(180deg);
+        }
+        .envelope.open + .message {
+            display: block;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            opacity: 0.7;
+            animation: confettiFall 5s linear infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>สุขสันต์วันปีใหม่ ๒๕๖๘</h1>
+    <div class="envelope" onclick="toggleMessage()"></div>
+    <div class="message">
+        <p>ขอให้ปีใหม่นี้เป็นปีที่เต็มไปด้วยความสุข ความสำเร็จ และกำลังใจที่ดีสำหรับทุกคน ปีหน้าพวกเราจะเริ่มต้นเส้นทางใหม่ของตัวเอง อาจจะต้องแยกย้ายกันไปตามทางที่เลือกไว้ แต่สิ่งที่อยากจะบอกกับทุกคนก็คือ ขอให้มีความสุขและภูมิใจกับสิ่งที่ตัวเองเลือกเดิน</p>
+        <p>แม้ว่าทางข้างหน้าอาจจะมีอุปสรรคหรือช่วงเวลาที่เหนื่อยและท้อแท้ แต่อยากให้รู้ไว้ว่าพวกเรายังคงเป็นเพื่อนกันเสมอ และพร้อมจะเป็นกำลังใจอยู่ข้างๆ ไม่ว่าทางนั้นจะไกลหรือใกล้ อย่าลืมดูแลตัวเองให้ดีและอย่ากลัวที่จะขอความช่วยเหลือเมื่อถึงเวลาที่ต้องการ</p>
+        <p>ท้ายนี้ ขอให้ทุกคนจงเดินหน้าต่อไปอย่างมั่นคง และเชื่อมั่นในศักยภาพของตัวเอง เพราะทุกก้าวที่เดินมีค่าและสำคัญเสมอ</p>
+        <p>รักและคิดถึงเสมอ ❤️</p>
+    </div>
+    <script>
+        function toggleMessage() {
+            const envelope = document.querySelector('.envelope');
+            envelope.classList.toggle('open');
+        }
+
+        // สร้างลูกปา (confetti) เพื่อเพิ่มบรรยากาศปีใหม่
+        function createConfetti() {
+            const confettiColors = ['#ff6666', '#ffcc66', '#66ff66', '#66ccff', '#cc66ff'];
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(confetti);
+            }
+        }
+
+        // เรียกใช้ฟังก์ชันสร้างลูกปาเมื่อโหลดหน้าเว็บ
+        window.onload = createConfetti;
+    </script>
+</body>
+</html>
